@@ -10,6 +10,7 @@ def start_game():
                 2. If you get the number choose whether you want continue.
                 3. TRY AND GET THE LOWEST SCORE!""")
     attempt = 0
+    high_score = 0
     right_number = random.randint(1, 10)
 
     while True:
@@ -32,18 +33,21 @@ def start_game():
 
         elif guess == right_number:
             attempt += 1
-            high_score = attempt
             print("You got it! You finished in {} attempts.".format(attempt))
             print("The game will end now, unless you would like to play again.")
             print("Would you like to play again: Y/N")
             again = input("> ")
             if again.upper() == "Y":
-                if high_score > attempt:
+                if high_score > attempt or high_score == 0:
+                    high_score = attempt
                     print ("The HIGH SCORE so far is {}".format(high_score))
+                    attempt = 0
                     continue
                 else:
                     print("The HIGH SCORE so far is {}".format(high_score))
+                    attempt = 0
                     continue
+
             elif again.upper() == "N":
                 break
 
