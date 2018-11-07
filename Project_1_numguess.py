@@ -1,4 +1,7 @@
 import random
+def random_num ():
+    right_number = random.randint(1, 10)
+    return right_number
 
 
 def start_game():
@@ -11,7 +14,7 @@ def start_game():
                 3. TRY AND GET THE LOWEST SCORE!""")
     attempt = 0
     high_score = 0
-    right_number = random.randint(1, 10)
+    random_num()
 
     while True:
         try:
@@ -21,17 +24,17 @@ def start_game():
         except ValueError as err:
             print ("{}".format(err))
 
-        if 11 > guess > right_number:
+        if 11 > guess > random_num():
             attempt += 1
             print("Too high.  Go lower.")
             continue
 
-        elif 0 < guess < right_number:
+        elif 0 < guess < random_num():
             attempt += 1
             print("Too low. Go higher.")
             continue
 
-        elif guess == right_number:
+        elif guess == random_num():
             attempt += 1
             print("You got it! You finished in {} attempts.".format(attempt))
             print("The game will end now, unless you would like to play again.")
@@ -42,10 +45,12 @@ def start_game():
                     high_score = attempt
                     print ("The HIGH SCORE so far is {}".format(high_score))
                     attempt = 0
+                    random_num()
                     continue
                 else:
                     print("The HIGH SCORE so far is {}".format(high_score))
                     attempt = 0
+                    random_num()
                     continue
 
             elif again.upper() == "N":
