@@ -24,19 +24,17 @@ def start_game():
                 raise ValueError ("Sorry that number is not in between 1 and 10. Try again.")
         except ValueError as err:
             print ("{}".format(err))
+            attempt += 1
 
         if 11 > guess > right_num:
-            attempt += 1
             print("Too high.  Go lower.")
             continue
 
         elif 0 < guess < right_num:
-            attempt += 1
             print("Too low. Go higher.")
             continue
 
         elif guess == right_num:
-            attempt += 1
             print("You got it! You finished in {} attempts.".format(attempt))
             print("The game will end now, unless you would like to play again.")
             print("Would you like to play again: Y/N")
