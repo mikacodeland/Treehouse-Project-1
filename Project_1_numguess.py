@@ -24,7 +24,8 @@ def start_game():
                 raise ValueError ("Sorry that number is not in between 1 and 10. Try again.")
         except ValueError as err:
             print ("{}".format(err))
-            attempt += 1
+
+        attempt += 1
 
         if 11 > guess > right_num:
             print("Too high.  Go lower.")
