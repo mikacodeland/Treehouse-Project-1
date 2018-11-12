@@ -1,7 +1,7 @@
 import random
 def random_num ():
-    right_number = random.randint(1, 10)
-    return right_number
+    return random.randint(1, 10)
+
 
 
 def start_game():
@@ -10,11 +10,12 @@ def start_game():
     print("***********************************************")
     print ("""GAME RULES:
                 1. Pick a number between 1 and 10 until you guess the correct number
-                2. If you get the number choose whether you want continue.
+                2. If you get the number choose whether you want continue. 
+                Type "Y" or "N" for yes or no
                 3. TRY AND GET THE LOWEST SCORE!""")
     attempt = 0
     high_score = 0
-    random_num()
+    right_num = random_num()
 
     while True:
         try:
@@ -24,17 +25,17 @@ def start_game():
         except ValueError as err:
             print ("{}".format(err))
 
-        if 11 > guess > random_num():
+        if 11 > guess > right_num:
             attempt += 1
             print("Too high.  Go lower.")
             continue
 
-        elif 0 < guess < random_num():
+        elif 0 < guess < right_num:
             attempt += 1
             print("Too low. Go higher.")
             continue
 
-        elif guess == random_num():
+        elif guess == right_num:
             attempt += 1
             print("You got it! You finished in {} attempts.".format(attempt))
             print("The game will end now, unless you would like to play again.")
@@ -45,12 +46,12 @@ def start_game():
                     high_score = attempt
                     print ("The HIGH SCORE so far is {}".format(high_score))
                     attempt = 0
-                    random_num()
+                    right_num = random_num()
                     continue
                 else:
                     print("The HIGH SCORE so far is {}".format(high_score))
                     attempt = 0
-                    random_num()
+                    right_num = random_num()
                     continue
 
             elif again.upper() == "N":
