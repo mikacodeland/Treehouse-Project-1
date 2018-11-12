@@ -38,8 +38,9 @@ def start_game():
         elif guess == right_num:
             print("You got it! You finished in {} attempts.".format(attempt))
             print("The game will end now, unless you would like to play again.")
-            print("Would you like to play again: Y/N")
-            again = input("> ")
+            again =("")
+            while again.upper() not in ("Y", "N"):
+                again = input("Would you like to play again? Y/N >")
             if again.upper() == "Y":
                 if high_score > attempt or high_score == 0:
                     high_score = attempt
@@ -60,5 +61,5 @@ def start_game():
 
 
 if __name__ == '__main__':
-    
+
     start_game()
