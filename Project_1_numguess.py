@@ -60,5 +60,5 @@ def start_game():
 
 
 if __name__ == '__main__':
-    # Kick off the program by calling the start_game function.
+    
     start_game()
